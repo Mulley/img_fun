@@ -1,0 +1,49 @@
+import argparse
+import os
+from scipy.misc import imread, imsave
+from alterations import *
+
+
+def main(choice):
+    path = 'resources/Michael.JPG'
+    alt_image = perform_alteration(imread(path), choice)
+    imsave(new_file_name(path, choice), alt_image)
+    print('\rDone!')
+
+
+def get_args():
+    parser = argparse.ArgumentParser(description='Process an image')
+    parser.add_argument('alteration', choices=[
+        'grey', 'grey_weighted', 'shift_left', 'shift_right'])
+
+    return parser.parse_args()
+
+
+def perform_alteration(image, choice):
+    alt_image = None
+    if choice.alteration == 'grey':
+        alt_image = convert_to_absolute_grey(image)
+    elif choice.alteration == 'grey_weighted':
+        alt_image = convert_to_weighted_grey(image)
+    elif choice.alteration == 'shift_left':
+        alt_image = shift_color_value_left(image)
+    elif choice.alteration == 'shift_right':
+        alt_image = shift_color_value_right(image)
+    else:
+        print("argparse means you shouldn't get here")
+    return alt_image
+
+
+def new_file_name(path, choice):
+    """
+    Return a string for the new file name.
+    path is the original path, choice is the arument from argparser
+    Original path is preserved.
+    """
+    name = os.path.splitext(path)[0]
+    extension = os.path.splitext(os.path.basename(path))[1]
+
+    return name + choice.alteration + extension
+
+if __name__ == '__main__':
+    main(get_args())
