@@ -1,10 +1,14 @@
-import argparse
 import os
+import argparse
 from scipy.misc import imread, imsave
-from alterations import *
+from alterations import (convert_to_absolute_grey,
+                         convert_to_weighted_grey,
+                         shift_color_value_left,
+                         shift_color_value_right)
 
 
 def main(choice):
+    """Script to run."""
     path = 'resources/Michael.JPG'
     alt_image = perform_alteration(imread(path), choice)
     imsave(new_file_name(path, choice), alt_image)
@@ -12,6 +16,7 @@ def main(choice):
 
 
 def get_args():
+    """Get commandline args."""
     parser = argparse.ArgumentParser(description='Process an image')
     parser.add_argument('alteration', choices=[
         'grey', 'grey_weighted', 'shift_left', 'shift_right'])
@@ -20,6 +25,7 @@ def get_args():
 
 
 def perform_alteration(image, choice):
+    """Perform specified alteration."""
     alt_image = None
     if choice.alteration == 'grey':
         alt_image = convert_to_absolute_grey(image)
@@ -37,6 +43,7 @@ def perform_alteration(image, choice):
 def new_file_name(path, choice):
     """
     Return a string for the new file name.
+
     path is the original path, choice is the arument from argparser
     Original path is preserved.
     """
