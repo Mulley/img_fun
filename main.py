@@ -1,5 +1,5 @@
 from scipy.misc import imread, imsave
-from img_alteration import perform_alteration, new_file_name, get_args
+from utilities import perform_alteration, new_file_name, get_args
 
 
 def main(choice):
