@@ -3,10 +3,12 @@ import numpy as np
 
 
 def weighted_average(pixel):
+    """Greyscale of this pixel as a weighted average."""
     return .299*pixel[0]+.587*pixel[1]+.114*pixel[2]
 
 
 def progress_bar(current_pos, total_size):
+    """Progress bar."""
     formatted_string = format((current_pos/total_size)*100, '.2f').rstrip(
         '0').rstrip('.')
     sys.stdout.write('\r' + formatted_string)
@@ -14,6 +16,7 @@ def progress_bar(current_pos, total_size):
 
 
 def convert_to_weighted_grey(image):
+    """Convert pixel to greyscale with weighted average value."""
     grey = np.zeros((image.shape[0], image.shape[1]))
     for row in range(len(image)):
         for col in range(len(image[row])):
@@ -24,6 +27,7 @@ def convert_to_weighted_grey(image):
 
 
 def convert_to_absolute_grey(image):
+    """Convert pixel to greyscale with average value."""
     grey = np.zeros((image.shape[0], image.shape[1]))
     for row in range(len(image)):
         for col in range(len(image[row])):
@@ -35,7 +39,8 @@ def convert_to_absolute_grey(image):
 
 def shift_color_value_right(image):
     """
-    Shift the values of the colors of the pixels to the right
+    Shift the values of the colors of the pixels to the right.
+
     Red gets Blue. Green gets Red. Blue gets Green.
     """
     for row in range(len(image)):
@@ -49,7 +54,8 @@ def shift_color_value_right(image):
 
 def shift_color_value_left(image):
     """
-    Shift the values of the colors of the pixels to the right
+    Shift the values of the colors of the pixels to the right.
+
     Red gets Green. Green gets Blue. Blue gets Red.
     """
     for row in range(len(image)):
