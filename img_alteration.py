@@ -1,18 +1,9 @@
 import os
 import argparse
-from scipy.misc import imread, imsave
 from alterations import (convert_to_absolute_grey,
                          convert_to_weighted_grey,
                          shift_color_value_left,
                          shift_color_value_right)
-
-
-def main(choice):
-    """Script to run."""
-    path = 'resources/Michael.JPG'
-    alt_image = perform_alteration(imread(path), choice)
-    imsave(new_file_name(path, choice), alt_image)
-    print('\rDone!')
 
 
 def get_args():
@@ -51,6 +42,3 @@ def new_file_name(path, choice):
     extension = os.path.splitext(os.path.basename(path))[1]
 
     return name + choice.alteration + extension
-
-if __name__ == '__main__':
-    main(get_args())
