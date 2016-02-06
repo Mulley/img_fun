@@ -1,3 +1,4 @@
+"""The alterations."""
 import sys
 import numpy as np
 

@@ -1,3 +1,4 @@
+"""Main Function."""
 from scipy.misc import imread, imsave
 from utilities import perform_alteration, new_file_name, get_args
 

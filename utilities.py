@@ -1,3 +1,4 @@
+"""Stop."""
 import os
 import argparse
 from alterations import (convert_to_absolute_grey,
