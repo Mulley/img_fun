@@ -12,7 +12,7 @@ def get_args():
     """Get commandline args."""
     parser = argparse.ArgumentParser(description='Process an image')
     parser.add_argument('alteration', choices=[
-        'grey', 'grey_weighted', 'shift_left', 'shift_right'])
+        'grey', 'grey_weighted', 'shift_left', 'shift_right', 'nearest_color'])
 
     return parser.parse_args()
 
