@@ -13,10 +13,13 @@ BLACK = {'r': 0, 'g': 0, 'b': 0}
 GRAY = {'r': 40, 'g': 40, 'b': 40}
 LIGHT_GRAY = {'r': 190, 'g': 190, 'b': 190}
 WHITE = {'r': 255, 'g': 255, 'b': 255}
+# Carcassone Colors
+RIVER = {'r': 115, 'g': 115, 'b': 115}
+GOLDENROD = {'r': 180, 'g': 100, 'b': 60}
+FIELD = {'r': 115, 'g': 130, 'b': 40}
 
 
-COMPARISON_LIST = [RED, BLUE, YELLOW, ORANGE, GREEN, PURPLE,
-                   BLACK, GRAY, LIGHT_GRAY, WHITE]
+COMPARISON_LIST = [FIELD, RIVER, GOLDENROD, BLACK]
 
 
 def get_numpy_list(colors=COMPARISON_LIST):
