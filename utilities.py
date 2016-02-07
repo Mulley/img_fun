@@ -4,7 +4,8 @@ import argparse
 from alterations import (convert_to_absolute_grey,
                          convert_to_weighted_grey,
                          shift_color_value_left,
-                         shift_color_value_right)
+                         shift_color_value_right,
+                         to_nearest_color)
 
 
 def get_args():
@@ -27,6 +28,8 @@ def perform_alteration(image, choice):
         alt_image = shift_color_value_left(image)
     elif choice.alteration == 'shift_right':
         alt_image = shift_color_value_right(image)
+    elif choice.alteration == 'nearest_color':
+        alt_image = to_nearest_color(image)
     else:
         print("argparse means you shouldn't get here")
     return alt_image
